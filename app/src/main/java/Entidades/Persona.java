@@ -28,4 +28,6 @@ public class Persona {
     public String getNombre() { return Nombre; }
 
     public String getApellido() { return Apellido; }
+
+    public void setCorreo(String correo) { this.correo = correo; }
 }

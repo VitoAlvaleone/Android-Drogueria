@@ -10,7 +10,6 @@ import Entidades.Persona;
 import Entidades.Producto;
 
 public class Controlador {
-    String Nombre;
     List<Persona> listaUsuario = new ArrayList<>();
     //                                                              PRIMERA ACTIVIDAD
     public List<Persona> listaUsuario(){
@@ -25,14 +24,13 @@ public class Controlador {
 
     public boolean comprueba(String usuario, String contraseña){
         boolean acceso=false;
-        listaUsuario();
+
         for (Persona persona : listaUsuario){
             String usuarioBD;
             String contraseñaBD;
             usuarioBD=persona.getUsuario();
             contraseñaBD=persona.getContraseña();
             if (usuario.equals(usuarioBD)&&contraseña.equals(contraseñaBD)){
-                Nombre=usuarioBD;
                 acceso=true;
             }
         }
@@ -41,29 +39,47 @@ public class Controlador {
 
     //                                                              SEGUNDA ACTIVIDAD
 
-    public String[] mostrarDatos(){
-        String nombre;
-        String apellido;
-        String correo;
-        listaUsuario();
+    public String[] mostrarDatos(String nombreUsuario){
+        String nombre = "";
+        String apellido = "";
+        String correo = "";
+
         String[] Datos = new String[3];
         for (Persona persona : listaUsuario){
             String usuario=persona.getUsuario();
-            if (Nombre.equals(usuario)){
+            if (nombreUsuario.equals(usuario)){
                 nombre=persona.getNombre();
                 apellido=persona.getApellido();
                 correo=persona.getCorreo();
-                Datos[1]=nombre;
-                Datos[2]=apellido;
-                Datos[3]=correo;
             }
+        }
+        try{
+            Datos[0]=nombre;
+            Datos[1]=apellido;
+            Datos[2]=correo;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
         }
         return Datos;
     }
 
+    public void cambiarcorreo(String correo, String nombreUsuario){
+        for (Persona persona: listaUsuario){
+            String usuario = persona.getUsuario();
+            if (nombreUsuario.equals(usuario)){
+                persona.setCorreo(correo);
+            }
+        }
+    }
+
     public List<Producto> listaProducto(){
         List<Producto> listaProducto = new ArrayList<>();
-        listaProducto.add(new Producto("cocacola", "2€", "bebida", R.drawable.cocacola));
+        listaProducto.add(new Producto("Desodorante Nivea", "2€", "Higiene Personal", R.drawable.nivea));
+        listaProducto.add(new Producto("Champú H&S", "2€", "Higiene Personal", R.drawable.hs));
+        listaProducto.add(new Producto("Colonia Bambú", "15€", "Perfumería", R.drawable.bambu));
+        listaProducto.add(new Producto("Colonia 960", "6€", "Perfumería", R.drawable.mercadonacolonia));
+        listaProducto.add(new Producto("Lejía", "3€", "Limpieza del hogar", R.drawable.lejia));
+        listaProducto.add(new Producto("Fairy", "1€", "Limpieza del hogar", R.drawable.fairy));
         return listaProducto;
     }
 }

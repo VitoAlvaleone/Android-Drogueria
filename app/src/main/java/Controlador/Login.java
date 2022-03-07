@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         introduceContraseña=findViewById(R.id.contraseña);
         boton=findViewById(R.id.boton);
         boton.setOnClickListener(this);
+        controlador.listaUsuario();
     }
 
 
@@ -41,7 +42,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         boolean bool=controlador.comprueba(nombreUsuario, contraseña);
         String result = "";
         if (bool) {
-            Intent acceso = new Intent(this, DatosUsuarios.class);
+            Intent acceso = new Intent(Login.this, DatosUsuarios.class);
+            acceso.putExtra("usuario", nombreUsuario);
             startActivity(acceso);
         } else {
             result="acceso denegado";
