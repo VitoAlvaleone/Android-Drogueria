@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Controlador.ListaProducto">
+    tools:context="Controlador.ListadoDeProducto">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaReciclada"
         android:layout_width="409dp"
         android:layout_height="503dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -16,7 +16,7 @@
             android:name="Controlador.Datosproducto"
             android:exported="false" />
         <activity
-            android:name="Controlador.ListaProducto"
+            android:name="Controlador.ListadoDeProducto"
             android:exported="false" />
         <activity
             android:name="Controlador.DatosUsuarios"
