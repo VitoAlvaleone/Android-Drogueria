@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Practica2trimestre">
         <activity
-            android:name="Controlador.cestacompra"
+            android:name="Controlador.CestaCompra"
             android:exported="false" />
         <activity
-            android:name="Controlador.datosproducto"
+            android:name="Controlador.Datosproducto"
             android:exported="false" />
         <activity
-            android:name="Controlador.listaProducto"
+            android:name="Controlador.ListaProducto"
             android:exported="false" />
         <activity
             android:name="Controlador.DatosUsuarios"

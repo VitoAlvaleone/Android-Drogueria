@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.practica2trimestre.R;
 
-public class listaProducto extends AppCompatActivity {
+public class CestaCompra extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_producto);
+        setContentView(R.layout.activity_cestacompra);
     }
 }

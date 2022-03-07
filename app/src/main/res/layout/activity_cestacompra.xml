@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Controlador.cestacompra">
+    tools:context="Controlador.CestaCompra">
 
     <TextView
         android:id="@+id/cabeceraCesta"
@@ -35,7 +35,7 @@
         android:id="@+id/botonPagar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pagar"
+        android:text="Enviar correo"
         android:textColor="@color/black"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
