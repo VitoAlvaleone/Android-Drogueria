@@ -4,60 +4,59 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.practica2trimestre.R;
-import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.ArrayList;
 
-import Entidades.ListaProducto;
+import Entidades.Producto;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.MiAdaptador> {
+public class Adapter extends BaseAdapter {
 
-    Context context;
-    ArrayList<ListaProducto> listaProducto;
+    private Context context;
+    private ArrayList<Producto> listado;
+    private int productos;
+    TextView textnombre;
+    ImageView img;
 
-    public Adapter(Context context, ArrayList<ListaProducto> listaProducto) {
+
+
+    public Adapter(Context context, ArrayList<Producto> listado, int productos) {
         this.context = context;
-        this.listaProducto = listaProducto;
-    }
-
-    @NonNull
-    @Override
-    public Adapter.MiAdaptador onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View v = LayoutInflater.from(context).inflate(R.layout.recycleview, parent, false);
-
-        return new MiAdaptador(v);
+        this.listado = listado;
+        this.productos = productos;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter.MiAdaptador holder, int position) {
-
-        ListaProducto lista = listaProducto.get(position);
-        holder.descripcionProducto.setText(lista.nombreProducto);
-        holder.imagenProducto.setImageResource(lista.imagen);
-
+    public int getCount() {
+        return listado.size();
     }
 
     @Override
-    public int getItemCount() {
-        return listaProducto.size();
+    public Object getItem(int i) {
+        return listado.get(i);
     }
 
-    public static class  MiAdaptador extends RecyclerView.ViewHolder{
-
-        TextView descripcionProducto;
-        ShapeableImageView imagenProducto;
-
-        public MiAdaptador(@NonNull View itemView) {
-            super(itemView);
-            descripcionProducto = itemView.findViewById(R.id.descripcionProducto);
-            imagenProducto = itemView.findViewById(R.id.imagenProducto);
-        }
+    @Override
+    public long getItemId(int i) {
+        return 0;
     }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        Producto producto = (Producto) getItem(i);
+        view = inflater.inflate(productos, null);
+        img = view.findViewById(R.id.imagenProducto);
+        textnombre = view.findViewById(R.id.descripcionProducto);
+
+        img.setImageResource(producto.getImagen());
+        textnombre.setText(producto.getNombre());
+        return view;
+    }
+
 }
+

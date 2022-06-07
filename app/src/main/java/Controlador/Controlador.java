@@ -72,8 +72,8 @@ public class Controlador {
         }
     }
 
-    public List<Producto> listaProducto(){
-        List<Producto> listaProducto = new ArrayList<>();
+    public ArrayList<Producto> listaProducto(){
+        ArrayList<Producto> listaProducto = new ArrayList<>();
         listaProducto.add(new Producto("Desodorante Nivea", "2€", "Higiene Personal", R.drawable.nivea));
         listaProducto.add(new Producto("Champú H&S", "2€", "Higiene Personal", R.drawable.hs));
         listaProducto.add(new Producto("Colonia Bambú", "15€", "Perfumería", R.drawable.bambu));

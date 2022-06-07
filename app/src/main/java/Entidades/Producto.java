@@ -14,4 +14,20 @@ public class Producto {
         this.categoria=categoria;
         this.imagen=imagen;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public int getImagen() {
+        return imagen;
+    }
 }

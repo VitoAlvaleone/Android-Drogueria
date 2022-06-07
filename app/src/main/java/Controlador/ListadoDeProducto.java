@@ -1,65 +1,42 @@
 package Controlador;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.practica2trimestre.R;
 
 import java.util.ArrayList;
 
-import Entidades.ListaProducto;
+import Entidades.Producto;
 
-public class ListadoDeProducto extends AppCompatActivity {
-
-    RecyclerView recyclerView;
-    ArrayList<ListaProducto> listaProductos;
+public class ListadoDeProducto extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    Controlador controlador = new Controlador();
+    ListView listado;
+    ArrayList<Producto> listaProductos = controlador.listaProducto();
     Adapter miAdapter;
-    String[] descripcionProducto;
-    int[] imagenProducto;
+    int productos;
+    ArrayList<Producto> cestaProductos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_producto);
-        recyclerView = findViewById(R.id.listaReciclada);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
+        listado = findViewById(R.id.listaReciclada);
+        productos = R.layout.productos;
+        miAdapter = new Adapter(this, listaProductos, productos);
+        listado.setAdapter(miAdapter);
+        listado.setOnItemClickListener(this);
 
-        listaProductos = new ArrayList<ListaProducto>();
-        miAdapter = new Adapter(this,listaProductos);
-        recyclerView.setAdapter(miAdapter);
-
-        descripcionProducto = new String[]{
-                "Desodorante Nivea",
-                "Champú H&S",
-                "Colonia Bambú",
-                "Colonia 960",
-                "Lejía",
-                "Fairy"
-        };
-
-        imagenProducto = new int[]{
-                R.drawable.nivea,
-                R.drawable.hs,
-                R.drawable.bambu,
-                R.drawable.mercadonacolonia,
-                R.drawable.lejia,
-                R.drawable.fairy
-        };
-
-        getData();
     }
 
-    private void getData() {
-
-        for (int i =0;i<descripcionProducto.length;i++){
-            ListaProducto listado = new ListaProducto(descripcionProducto[i], imagenProducto[i]);
-            listaProductos.add(listado);
-        }
-
-        miAdapter.notifyDataSetChanged();
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Producto producto = listaProductos.get(i);
+        cestaProductos.add(producto);
 
     }
 }
