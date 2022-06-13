@@ -74,12 +74,12 @@ public class Controlador {
 
     public ArrayList<Producto> listaProducto(){
         ArrayList<Producto> listaProducto = new ArrayList<>();
-        listaProducto.add(new Producto("Desodorante Nivea", "2€", "Higiene Personal", R.drawable.nivea));
-        listaProducto.add(new Producto("Champú H&S", "2€", "Higiene Personal", R.drawable.hs));
-        listaProducto.add(new Producto("Colonia Bambú", "15€", "Perfumería", R.drawable.bambu));
-        listaProducto.add(new Producto("Colonia 960", "6€", "Perfumería", R.drawable.mercadonacolonia));
-        listaProducto.add(new Producto("Lejía", "3€", "Limpieza del hogar", R.drawable.lejia));
-        listaProducto.add(new Producto("Fairy", "1€", "Limpieza del hogar", R.drawable.fairy));
+        listaProducto.add(new Producto("Desodorante Nivea", 2, "Higiene Personal", R.drawable.nivea));
+        listaProducto.add(new Producto("Champú H&S", 2, "Higiene Personal", R.drawable.hs));
+        listaProducto.add(new Producto("Colonia Bambú", 15, "Perfumería", R.drawable.bambu));
+        listaProducto.add(new Producto("Colonia 960", 6, "Perfumería", R.drawable.mercadonacolonia));
+        listaProducto.add(new Producto("Lejía", 3, "Limpieza del hogar", R.drawable.lejia));
+        listaProducto.add(new Producto("Fairy", 1, "Limpieza del hogar", R.drawable.fairy));
         return listaProducto;
     }
 }

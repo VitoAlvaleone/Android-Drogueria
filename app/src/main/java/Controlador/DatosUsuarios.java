@@ -53,8 +53,9 @@ public class DatosUsuarios extends AppCompatActivity implements View.OnClickList
                 cambios.setText(datos[2]);
                 break;
             case R.id.confirmar:
+                String correo = String.valueOf(huecoCorreo.getText());
                 Intent acceso = new Intent(DatosUsuarios.this, ListadoDeProducto.class);
-                acceso.putExtra("correoUsuario", huecoCorreo.getText());
+                acceso.putExtra("correoUsuario", correo);
                 startActivity(acceso);
                 break;
         }
